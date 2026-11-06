@@ -1,0 +1,14 @@
+ssrf: a blocklist vs an allowlist on the same URLs. Python 3.13.18, Linux, 4 CPUs
+
+  url                                       what it is            blocklist     allowlist   
+  --------------------------------------    ------------------    ----------    ----------  
+  http://images.acme.test/logo.png          the avatar host       allow         allow       
+  http://169.254.169.254/latest/meta-dat    cloud metadata IP     block         block       
+  http://metadata.internal/secret           internal by name      block         block       
+  http://169.254.169.254.nip.io/            IP wrapped in a name  block         block       
+  http://127.0.0.1:8080/admin               loopback admin        ALLOW!        block       
+  http://[::1]/admin                        loopback, IPv6        ALLOW!        block       
+  http://metadata-service.acme.test/        another internal host  ALLOW!        block       
+
+  Of 6 internal targets, the blocklist lets 3 through and the allowlist lets 0 through.
+  You cannot name every bad address. You can name the few good ones.

@@ -1,0 +1,9 @@
+tokens: a predictable scheme vs secrets.token_urlsafe. Python 3.13.18, Linux, 4 CPUs
+
+  scheme                  tokens        distinct      collisions    space bits  
+  --------------------    ----------    ----------    ----------    ----------  
+  predictable             200,000       57,856        142,144       16          
+  token_urlsafe(24)       200,000       200,000       0             192         
+
+  Generated in 91 ms and 200 ms. The predictable scheme repeats 142,144 times;
+  guessing one of its 60,000 values takes at most 60,000 tries. The strong one did not repeat once.

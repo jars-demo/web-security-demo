@@ -1,0 +1,289 @@
+@import 'tailwindcss';
+
+/*
+  The security series, stage 2. Same cool paper, slate ink and type as stage 1, with one new
+  accent: indigo, for links and actions, so the stages can be told apart. Pass is always the same
+  green and fail the same red, across every stage. Every colour pair that carries text is checked
+  for WCAG AA in tests/unit/tokens.test.ts.
+*/
+:root {
+  --canvas: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eceff3;
+  --rule: #dde2e8;
+  --ink: #0d1321;
+  --ink-2: #344054;
+  --muted: #5b6474;
+  --slate: #0d1321;
+  --slate-2: #1a2233;
+  --on-slate: #f2f4f7;
+  --on-slate-muted: #aab4c4;
+  --accent: #4f46e5;
+  --accent-text: #4338ca;
+  --accent-wash: #e8e7fc;
+  --on-accent: #ffffff;
+  --accent-glow: #a5b4fc;
+  --pass: #157347;
+  --pass-wash: #e6f4ec;
+  --fail: #b42318;
+  --fail-wash: #fdecea;
+  --code-bg: #0d1321;
+  --code-head: #1a2233;
+  --code-ink: #e6eaf0;
+  --code-muted: #a3adbd;
+  --shadow-card: 0 1px 2px rgb(13 19 33 / 0.05), 0 4px 14px rgb(13 19 33 / 0.05);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-rule: var(--rule);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-slate: var(--slate);
+  --color-slate-2: var(--slate-2);
+  --color-on-slate: var(--on-slate);
+  --color-on-slate-muted: var(--on-slate-muted);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-wash: var(--accent-wash);
+  --color-on-accent: var(--on-accent);
+  --color-accent-glow: var(--accent-glow);
+  --color-pass: var(--pass);
+  --color-pass-wash: var(--pass-wash);
+  --color-fail: var(--fail);
+  --color-fail-wash: var(--fail-wash);
+  --color-code-bg: var(--code-bg);
+  --color-code-head: var(--code-head);
+  --color-code-ink: var(--code-ink);
+  --color-code-muted: var(--code-muted);
+
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, Consolas, monospace;
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.on-slate :focus-visible {
+  outline-color: var(--accent-glow);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.on-slate .eyebrow {
+  color: var(--accent-glow);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+}
+
+.terminal {
+  background: var(--code-bg);
+  color: var(--code-ink);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Chapter prose ---------- */
+
+.prose-doc {
+  font-size: 17px;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+
+.prose-doc > * + * {
+  margin-top: 1.1em;
+}
+
+.prose-doc > h2:first-child {
+  margin-top: 0;
+}
+
+.prose-doc h2 {
+  margin-top: 2.2em;
+  font-size: 25px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.prose-doc h2 .anchor {
+  margin-left: 0.4em;
+  color: var(--accent-text);
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0;
+}
+
+.prose-doc h2:hover .anchor,
+.prose-doc h2 .anchor:focus-visible {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .prose-doc h2 .anchor {
+    display: none;
+  }
+}
+
+.prose-doc h3 {
+  margin-top: 1.8em;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.prose-doc ul {
+  list-style: disc;
+  padding-left: 1.3em;
+}
+
+.prose-doc ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+}
+
+.prose-doc li + li {
+  margin-top: 0.4em;
+}
+
+.prose-doc li::marker {
+  color: var(--accent-text);
+}
+
+.prose-doc a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-doc strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.prose-doc blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-wash);
+  border-radius: 0 8px 8px 0;
+  padding: 0.8em 1em;
+  color: var(--ink);
+}
+
+.prose-doc :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.prose-doc .code-block {
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--code-bg);
+}
+
+.prose-doc .code-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 6px 4px 14px;
+  background: var(--code-head);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--code-muted);
+}
+
+.prose-doc .code-block pre {
+  overflow-x: auto;
+  padding: 14px 16px 16px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--code-ink);
+}
+
+.prose-doc .code-block.is-output pre {
+  color: var(--code-muted);
+}
+
+.prose-doc .table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+}
+
+.prose-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.prose-doc th,
+.prose-doc td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose-doc tr:last-child td {
+  border-bottom: 0;
+}
+
+.prose-doc th {
+  background: var(--surface-2);
+  color: var(--ink);
+  font-weight: 700;
+}

@@ -1,0 +1,10 @@
+exfiltrate: dumping tokens through the login. Python 3.13.18, Linux, 4 CPUs
+
+  request   token recovered           bytes     
+  ------    ----------------------    --------  
+  1         tok_1041_7af3c1           194       
+  2         tok_1042_2bd9e0           194       
+  3         tok_1099_ff21aa           193       
+
+  3 tokens in 3 requests, 581 bytes, 3.5 ms total.
+  No password was ever guessed. The query was simply told to return something else.
