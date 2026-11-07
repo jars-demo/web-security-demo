@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/social-preview.png" alt="Trust no request: stage 2 of a hands-on security series" width="820" />
+</p>
+
 # Trust no request
 
 Stage 2 of a hands-on security series. One small Python service, ten real web-application
@@ -64,6 +68,7 @@ lab/trust/            the CLI, the tiny HTTP stack, the SQLite store, the checks
 lab/tests/            every case fails as shipped and passes with the fix in tests/solutions/
 workshop/             the chapters, in Markdown
 frontend/             the workshop site (Next.js), which renders workshop/
+assets/               the logo and the social preview image
 ```
 
 Run the lab's tests with `cd lab && uv run pytest`.
