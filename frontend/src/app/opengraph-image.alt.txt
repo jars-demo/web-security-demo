@@ -1,0 +1,1 @@
+Trust no request: stage 2 of a hands-on security series. Ten real web weaknesses in one small Python service, with a check that proves each fix.

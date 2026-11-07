@@ -1,19 +1,30 @@
 import Link from 'next/link'
 
 import { BackToTop } from '@/components/BackToTop'
-import { REPO_URL, SERIES, STAGE, TITLE } from '@/lib/site'
+import { PREV_REPO_URL, REPO_URL, SERIES, STAGE, TITLE } from '@/lib/site'
 
 function Mark() {
   return (
-    <svg viewBox="0 0 24 24" className="size-6 shrink-0" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" fill="#4f46e5" />
+    <svg viewBox="0 0 64 64" className="size-7 shrink-0" aria-hidden="true">
+      <rect
+        x="1"
+        y="1"
+        width="62"
+        height="62"
+        rx="14"
+        fill="#1a2233"
+        stroke="#344054"
+        strokeWidth="2"
+      />
       <path
-        d="M12 6l5 2v3.2c0 3-2.1 5.1-5 6.2-2.9-1.1-5-3.2-5-6.2V8l5-2z"
+        d="M18 20 30 32 18 44"
         fill="none"
-        stroke="#ffffff"
-        strokeWidth="1.6"
+        stroke="#f2f4f7"
+        strokeWidth="6"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
+      <path d="M43 16v32" fill="none" stroke="#a5b4fc" strokeWidth="6" strokeLinecap="round" />
     </svg>
   )
 }
@@ -52,7 +63,11 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-rule pb-20">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-[14px] text-muted sm:flex-row sm:justify-between">
           <p>
-            {TITLE}. {SERIES}, stage {STAGE}. Every lab runs on your own machine, on 127.0.0.1.
+            {TITLE}. {SERIES}, stage {STAGE}, after{' '}
+            <a href={PREV_REPO_URL} className="underline underline-offset-2 hover:text-ink">
+              How systems talk
+            </a>
+            . Every lab runs on your own machine, on 127.0.0.1.
           </p>
           <p>MIT licensed.</p>
         </div>

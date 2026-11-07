@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: TITLE, template: `%s · ${TITLE}` },
   description: TAGLINE,
+  openGraph: { title: TITLE, description: TAGLINE, url: SITE_URL, type: 'website' },
+  twitter: { card: 'summary_large_image', title: TITLE, description: TAGLINE },
 }
 
 export const viewport: Viewport = {
