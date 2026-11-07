@@ -28,7 +28,7 @@ export async function generateMetadata(props: PageProps<'/workshop/[slug]'>): Pr
 function Command({ text }: { text: string }) {
   return (
     <div className="terminal flex items-center justify-between gap-2 py-1 pr-1 pl-3.5 text-[13.5px]">
-      <code className="min-w-0 overflow-x-auto py-1.5 whitespace-nowrap">
+      <code className="min-w-0 py-1.5 [overflow-wrap:anywhere]">
         <span className="text-accent-glow">$ </span>
         {text}
       </code>
